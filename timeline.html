@@ -1,0 +1,169 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+  
+      header {
+        text-align: center;
+        padding: 5px;
+        
+      }
+  
+      nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: #7f75e0;
+        color: #fff;
+        padding: 10px;
+      }
+  
+      section {
+        display: flex;
+      }
+  
+      aside {
+        flex: 2;
+        border-right: 5px solid #000000;
+        padding: 20px;
+        height: 500px;
+      }
+  
+      main {
+        flex: 8;
+        padding: 20px;
+      }
+
+      h2 {
+          margin-bottom: 100px;
+         }
+
+      .timeline {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .timeline-event {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        text-decoration: none; /* 밑줄 제거 */
+        color: black; /* 텍스트의 색상을 원래대로 설정 */
+        font-weight: normal; /* 텍스트의 굵기를 원래대로 설정 */
+      }
+
+      .event-shape {
+        width: 300px;
+        height: 200px;
+        margin-right: 10px;
+        background-color: #3498db; /* 사각형 색상 */
+        background-size: cover; /* 이미지를 비율 유지하며 채우기 */
+        background-position: center; /* 이미지를 가운데 정렬 */
+        transition: transform 0.3s;
+      }
+
+      .timeline-event:hover .event-shape {
+        transform: scale(1.2); /* 커서를 올렸을 때 사각형을 1.2배 확대 */
+      }
+
+      .event-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .event1 .event-shape {
+        background-image: url('autum.jpg'); /* 첫 번째 이미지에 대한 올바른 경로 또는 URL을 추가하세요 */
+      }
+
+      .event2 .event-shape {
+        background-image: url('summer.jpg'); /* 두 번째 이미지에 대한 올바른 경로 또는 URL을 추가하세요 */
+      }
+
+      .event3 .event-shape {
+        background-image: url('fall.jpg'); /* 세 번째 이미지에 대한 올바른 경로 또는 URL을 추가하세요 */
+      }
+
+      .event4 .event-shape {
+        background-image: url('winter.jpg'); /* 네 번째 이미지에 대한 올바른 경로 또는 URL을 추가하세요 */
+      }
+
+      .event-year {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <header>
+      <h1>타임라인</h1>
+    </header>
+  
+    <nav>
+        <a href="index.html">프로필</a>
+        <a href="timeline.html">타임라인</a>
+        <a href="details.html">분기별 세부내용</a>
+        <a href="issue.html">사회적 이슈</a>
+      </nav>
+
+      <section>
+        <main>
+          <h2>인생의 타임라인</h2>
+          <div class="timeline">
+            <a href="#period-2001-2012" class="timeline-event event1">
+              <div class="event-shape"></div>
+              <div class="event-content">
+                <p class="event-year">2001년~2012년</p>
+                <p>한국 경기도 평택시</p>
+              </div>
+            </a>
+            <a href="#period-2012-2017" class="timeline-event event2">
+              <div class="event-shape"></div>
+              <div class="event-content">
+                <p class="event-year">2012년~2017년</p>
+                <p>중국 장소성 소주시</p>
+              </div>
+            </a>
+            <a href="#period-2017-2021" class="timeline-event event3">
+              <div class="event-shape"></div>
+              <div class="event-content">
+                <p class="event-year">2017년~2021년</p>
+                <p>한국 경기도 성남시</p>
+              </div>
+            </a>
+            <!-- 추가된 부분 -->
+            <a href="#period-2021-2023" class="timeline-event event4">
+              <div class="event-shape"></div>
+              <div class="event-content">
+                <p class="event-year">2021년~2023년</p>
+                <p>한국 경기도 의정부시</p>
+              </div>
+            </a>
+          </div>
+        </main>
+    </section>
+  
+    <script>
+        // 각 타임라인 이벤트에 대한 클릭 이벤트 리스너 추가
+        document.querySelectorAll('.timeline-event').forEach(function (event) {
+            event.addEventListener('click', function () {
+                // 클릭한 타임라인 이벤트의 href 값을 읽어와서 이동
+                var href = event.getAttribute('href');
+                window.location.href = 'details.html' + href;
+    
+                // 페이지 제일 위로 스크롤
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
+
+
+  </body>
+</html>
